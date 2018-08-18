@@ -10,6 +10,6 @@ weight = gets.chomp
 puts "So, you're #{age} old, #{height} tall, and #{weight} heavy."
 
 print "Are you learning ruby? "
-ruby = gets.chomp.capitalize
+ruby = gets.chomp.capitalize #get input, remove whitespace, and capitalize it
 
 puts "And are you learning code? #{ruby}"
