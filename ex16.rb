@@ -41,10 +41,18 @@ target.write("\n")
 
 target.write("line 1: #{line1}\nline 2: #{line2}\nline 3: #{line3}\n")
 
+=begin
+#this doesn't seem to work because we can't write to the same file we're going to read from"
 puts "Let's read it!"
-target1 = open(target)
+target1 = open(target, "r")
 #openfile = open(target)
 puts target1.read
+=end
+
+open_file = open(target, "r")
+
+puts open_file.read
 
 puts "And finally, we close it."
 target.close
+
