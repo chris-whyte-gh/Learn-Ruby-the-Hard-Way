@@ -1,14 +1,14 @@
+#Get the first two arguments and save them as from_file, to_file
 from_file, to_file = ARGV
 
-puts "Copying from #{from_file} to #{to_file}"
+puts "Copying content from #{from_file} to #{to_file}"
 
-#open first file, from_file, save it to variable in_file, read that and save it to indata
+#open first file, just a filename right now, save it to variable in_file as an object 
 in_file = open(from_file)
 indata = in_file.read
 
 puts "The input file is #{indata.length} bytes long"
 
-#call exist? method of File object with variable to_file
 puts "Does the output file exist? #{File.exist?(to_file)}"
 puts "Ready, hit RETURN to continue, CTRL-C to abort."
 #waiting to get user input
