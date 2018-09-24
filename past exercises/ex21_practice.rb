@@ -31,8 +31,9 @@ end
 
 puts "Give me some numbers to run formulas:"
 
-a = gets.chomp.to_i
-b = gets.chomp.to_i
+#convert to floating point
+a = gets.chomp.to_f
+b = gets.chomp.to_f
 #c = gets.chomp.to_i
 #d = gets.chomp.to_i
 #e = gets.chomp.to_i
