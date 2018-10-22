@@ -1,11 +1,17 @@
+# require lets us gain access to methods written in another ruby file. However, directly calling a method from file B into file A is messy and can pollute the global namespace. We wrap methods in a module and can access methods through that module
+
+#The name of the Ruby file does not have to correlate with the module name. We just have to `require` the .rb file to use the module.
+
+
 module Ex25
-    #This function will break up words for us.
-    def Ex25.break_words(stuff)
-        words = stuff.split(' ')
-        return words
+
+#This function splits the argument at each space into an array of words.
+def Ex25.break_words(stuff)
+    words = stuff.split(' ')
+    return words
 end
 
-#Sorts the words
+#Sorts the array of words
 def Ex25.sort_words(words)
     return words.sort
 end
