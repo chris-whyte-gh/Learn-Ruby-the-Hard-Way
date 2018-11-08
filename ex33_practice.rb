@@ -5,7 +5,7 @@ def number_array()
     i = 0
 
     while i < number.to_i 
-        puts "I am going to print out your number #{numbers}"#, numbers
+        puts "I am going to print out your number ", numbers
         numbers.push(i)
         i += 1
     end
