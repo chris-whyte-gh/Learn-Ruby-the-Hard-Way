@@ -6,7 +6,7 @@ while i < 6 #condition for while loop
     numbers.push(i) #adds i variable to numbers array
 
     i += 1 #increase value of i by 1
-    puts "Numbers row: ", numbers #displays array
+    puts "Numbers row: ", numbers #puts array
     #this is a list/array, why is there no string interpolation, why a comma
     puts "At the bottom i is #{i}" #puts i, but now increased by 1
 end #ends while loop
