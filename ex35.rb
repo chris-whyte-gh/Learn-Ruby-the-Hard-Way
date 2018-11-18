@@ -32,6 +32,8 @@ def bear_room #this function runs once the user inputs left
             puts "The bear has moved from the door. You can go through it now."
             bear_moved = true
         elsif choice == "taunt bear" && bear_moved #does the same thing as above, but this time checks that the value of bear_moved is whatever the value exists.
+            dead("The bear gets pissed off and chews your leg off.")
+        elsif choice == "open door" && bear_moved
             gold_room
         else
             puts "I got no idea what that means."
