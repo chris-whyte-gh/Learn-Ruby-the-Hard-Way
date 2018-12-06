@@ -20,64 +20,94 @@ def start
     Door 2 leads to wolves
     Door 3 leads to fog
     Which door do you choose (1, 2, 3)"
-        #while true
-        door = $stdin.gets.chomp
-            if door == "1"
-                elves
-            elsif door == "2"
-                wolves
-            elsif door == "3"
-                fog
-            else
-                puts "Please choose 1, 2, or 3"
-                start
-            end
-        #end
+    print "> "
+    while true #While true keeps the if/else close open until a choice is made. Otherwise, it will end if the user doesn't select 1,2, or 3
+    door = $stdin.gets.chomp #$stdin reads users input
+        if door == "1" || door.include?("elves")
+            elves
+        elsif door == "2" || door.include?("wolves")
+            wolves
+        elsif door == "3" || door.include?("fog")
+            fog
+        else
+            puts "Please choose 1, 2, or 3"
+        end
+    end
 end
 
 def elves
     puts "The elves want you to make a wish. You can wish for money, eternal life, or world peace. What do you wish for?"
+    puts "Money, life, or peace?"
+    print "> "
+    elves = true
     wish = $stdin.gets.chomp
+    if wish == "money"
+        money
+        elsif wish.include? "life"
+        eternal_life
+        elsif wish.include? "peace"
+        world_peace
+        else 
+        no_wish
+    end
 end
 
 def wolves
     puts "The wolves want you to make a wish. You can wish for money, eternal life, or world peace. What do you wish for?"
+    puts "money, life, or peace"
+    print "> "
+    wish = $stdin.gets.chomp
+    wolves = true
+    if wish == "money"
+        money
+        elsif wish.include? "life"
+        eternal_life
+        elsif wish.include? "peace"
+        world_peace
+        else 
+        no_wish
+        end
 end
 
 def fog
     puts "You are in a fog. What do you wish for?"
-end
-
-def wish
-    if wish.include? "money"
-    money
-    elsif wish.include? "life"
-    eternal_life
-    elsif wish.include? "peace"
-    world_peace
-    else 
-    elves
+    puts "money, life, or peace"
+    print "> "
+    fog = true
+    wish = $stdin.gets.chomp
+    if wish == "money"
+        money
+        elsif wish.include? "life"
+        eternal_life
+        elsif wish.include? "peace"
+        world_peace
+        else 
+        no_wish
     end
 end
 
 def money
     puts "You become poor"
+    exit
 end
 
 def eternal_life
     puts "You die"
+    exit
 end
 
 def world_peace
-    puts "War breaks out"
-end
-
-def another_wish
-    puts "No more wishes"
+    if wolves = true
+        puts "Nations put down their guns"
+    else
+        puts "War breaks out"
+    end
+    exit
 end
 
 def no_wish
     puts "You don't get a wish"
+    exit
 end
 
 start
