@@ -22,7 +22,7 @@ def bear_room #this function runs once the user inputs left
     puts "How far are you going to move the bear?" #these are strings put to the screen
     bear_moved = false #this is a variable set to false
 
-    while true #this is a while loop that will run while the condition is true. What condition?
+    while true #this is a while loop that will run while the condition is true. What condition? It is just set to true, so will continue to run unless a choice is made that forces it to escape
         print "> "
         choice = $stdin.gets.chomp #after string above, user needs to input one of the answers from below
 
