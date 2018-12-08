@@ -1,4 +1,5 @@
 require "./bride.rb"
+require "./merman.rb"
 
 def start
     puts "You are in the cabin."
