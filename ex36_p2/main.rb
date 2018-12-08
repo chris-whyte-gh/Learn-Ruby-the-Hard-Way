@@ -10,9 +10,9 @@ def start
     
         examine_items = $stdin.gets.chomp.downcase
     
-        if examine_items == "yes"
+        if ["yes","y"].include?(examine_items)
             pick_items
-        elsif examine_items == "no"
+        elsif ["no", "n"].include?(examine_items)
             puts "You sit around doing nothing."
             puts "Your stupid friend picks something up"
             pick_items
@@ -42,6 +42,11 @@ end
 
 def dead(reason)
     puts reason + " " + "Game over" #Can also use << to concatenate
+    exit(0)
+end
+
+def win(monster_killed)
+    puts "You faced off against #{monster_killed}. You win!"
     exit(0)
 end
 
