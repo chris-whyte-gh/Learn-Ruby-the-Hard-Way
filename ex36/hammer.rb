@@ -1,10 +1,10 @@
 def hammer
     puts "You pick up the hammer"
     puts "There are 10 nails on the table"
-    puts "How many do you hit?"
+    puts "You decide now is the time in life when you want to hammer shit"
 
     nails = []
-    (1..4).each do |strike| #for loop through 4 iterations (1..4) is the array
+    (1..3).each do |strike| #for loop through 4 iterations (1..4) is the array
         puts "How many nails do you hit on strike ##{strike}?"
 
     begin
@@ -30,7 +30,7 @@ def hammer
         puts "Too many"
         exit(0)
     else
-        puts "This should never run."
+        abort("This should never run.")
     end
 
 end
