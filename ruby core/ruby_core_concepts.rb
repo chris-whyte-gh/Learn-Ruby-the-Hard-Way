@@ -1,4 +1,4 @@
-=begin
+
 #two ways to print
 puts "hello"
 print "World"
@@ -298,4 +298,4 @@ my_italian_chef = ItalianChef.new()
 my_italian_chef.make_pasta()
 my_italian_chef.make_chicken()
 my_italian_chef.make_special_dish()
-=end
+
