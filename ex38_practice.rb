@@ -30,6 +30,7 @@ puts bumped
 vacation_spots_array.pop()
 vacation_spots_array.pop(4) #removes last element of array
 puts vacation_spots_array
-
-
+puts vacation_spots_array.join(' fuck ')
+puts vacation_spots_array[0...2].join(' more fuck ')
+puts vacation_spots_array[0..2].join(' more fuck ')
 
