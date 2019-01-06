@@ -9,7 +9,7 @@ more_stuff = ["Day", "Night", "Song", "Frisbee", "Corn", "Banana", "Girl", "Boy"
 #Use math to make sure there's 10 items
 
 while stuff.length != 10
-    next_one = more_stuff.pop #remove last element of more stuff: pop(more_stuff); more_stuff.pop = pop(more_stuff)
+    next_one = more_stuff.pop #return last element of more stuff: pop(more_stuff); more_stuff.pop = pop(more_stuff)
     puts "Adding: #{next_one}"
     stuff.push(next_one) #next_one.push
     puts "There are #{stuff.length} items now."
