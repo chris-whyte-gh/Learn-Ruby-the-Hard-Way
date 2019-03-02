@@ -82,4 +82,4 @@ harry = Halibut.new()
 
 
 rover.speak()
-harry.swim("fast")
+#harry.swim("fast")
