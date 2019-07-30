@@ -1,7 +1,10 @@
+#Let's start with a scene
+
 class Scene
     def enter()
         puts "You enter the room"
         exit(0) #exit with success code '0'
+        #can also exit(1) with a failure code
     end
 end
 
@@ -24,6 +27,31 @@ class Engine
     end
 end
 
+class Map
+
+    @@scenes = {
+        'central_corridor' => CentralCorridor.new(),
+        'laser_weapon_armory' => LaserWeaponArmory.new(),
+        'escape_pod' => EscapePod.new(),
+        'the_bridge' => TheBridge.new(),
+        'death' => Death.new(),
+        'finished' => Finished.new(),
+    }
+
+    def initialize(start_scene) #initialize inherits from the class object
+        @start_scene = start_scene
+    end
+
+    def next_scene(scene_name)
+        val = @@scenes[scene_name]
+        return val
+    end
+
+    def opening_scene()
+        return next_scene(@start_scene)
+    end
+end
+
 class Death < Scene
     @@responses = [ #@@ is a class variable, can apply across any class in this program
         "Well, you're dead",
@@ -31,7 +59,7 @@ class Death < Scene
         "This is the end, my friend"
     ]
     
-    def enter()
+    def enter() 
         puts @@responses[rand(0..(@@responses.length-1))] #why doesn't rand use 1-3, since only 3 responses? What if I want to add more, have to keep changing 3
         #length returns the number of elements in the array, which is 3
         exit(1)
@@ -167,32 +195,6 @@ class Finished < Scene
         puts "You won! Great job!"
     end
 end
-
-class Map
-
-    @@scenes = {
-        'central_corridor' => CentralCorridor.new(),
-        'laser_weapon_armory' => LaserWeaponArmory.new(),
-        'escape_pod' => EscapePod.new(),
-        'the_bridge' => TheBridge.new(),
-        'death' => Death.new(),
-        'finished' => Finished.new(),
-    }
-
-    def initialize(start_scene) #initialize inherits from the class object
-        @start_scene = start_scene
-    end
-
-    def next_scene(scene_name)
-        val = @@scenes[scene_name]
-        return val
-    end
-
-    def opening_scene()
-        return next_scene(@start_scene)
-    end
-end
-
 
 a_map = Map.new('central_corridor')
 a_game = Engine.new(a_map)
