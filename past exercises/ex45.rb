@@ -6,6 +6,23 @@
 # Lay out the action
 # Move to a new room
 
+# I could have also required all the separate classes instead of being one big file, like
+=begin
+ex45.rb
+require './basement.rb'
+require './dress.rb'
+require './necklace.rb'
+require './merman.rb'
+require './players.rb'
+require './zombie.rb'
+require './ending.rb'
+require './enginemap.rb'
+
+game_map = Map.new('basement')
+game_engine = Engine.new(game_map)
+game_engine.play()
+=end
+
 
 # 1. Create a map of the house with the rooms
 system('clear')
@@ -36,9 +53,10 @@ class Engine
             next_room_name = current_room.enter()
             current_room = @room_map.next_room(next_room_name)
         end
+
+        current_room.enter() #I don't think I need this
     end
 
-    #current_room.enter() I don't think I need this
 end
 
 class Death < Room
@@ -63,21 +81,26 @@ class Lobby < Room
         puts "There is a kitchen in front of you, the dining room to the left, and the bedroom to the right."
         puts "The door slams shut behind you! You hear a noise above you, it's the chandelier. It's swinging back and forth, the cord making a strained sound."
         puts "CRACK! The chandelier cord breaks, hurling it down to you. Quick! Jump into a room: "
-        puts "The Kitchen, the dining room, or the bedroom?"
-        puts "-------"
-        print ": "
+        # An array for room choices, makes it expandable if I want to add more
+        room_choice = ['The Kitchen', 'The Dining Room', 'The Bedroom']
+        # Now, numerate and display
+        (1..room_choice.length).each do |number|
+            puts "#{number}. %s" % room_choice[number-1]
+        end
 
-        room = gets.chomp.downcase
+        print "You choose number: "
 
-        if room == 'kitchen'
+        room = gets.chomp
+
+        if room == "1"
             return 'kitchen'
-        elsif room == 'bedroom'
+        elsif room == "2"
             return 'bedroom'
-        elsif room == 'dining room'
+        elsif room == "3"
             return 'dining_room'
         else 
             puts "The chandelier falls on you. You're dead :("
-
+            return 'death'
         end
     end
 end
