@@ -73,7 +73,7 @@ class Lobby < Room
             return 'kitchen'
         elsif room == 'bedroom'
             return 'bedroom'
-        elsif room == 'dining_room'
+        elsif room == 'dining room'
             return 'dining_room'
         else 
             puts "The chandelier falls on you. You're dead :("
@@ -118,7 +118,30 @@ end
 
 class DiningRoom < Room
     def enter()
-    puts "You are in the Dining Room"
+    puts "Ah, the dining room."
+    puts "This is where it ends, you and the chandelier"
+    puts "The chandelier sits at one end of the table, you at the other."
+    puts "You decide to play a game. Roll the dice, make a guess."
+    puts "If you guess the correct number, you can kill the chandelier once and for all and leave the house."
+    puts "But if you don't guess the correct number, the chandelier will finally have its way with you. Whatever that means to a chandelier."
+    puts "The die is cast. What number do you guess? "
+    print "> "
+    guess = $stdin.gets.chomp.to_i
+
+    die = rand(1..6)
+        if guess == die
+            puts "Wow, you won!"
+            puts "The chandelier looks up, tears in its eyes."
+            puts "You feel sad for a moment."
+            puts "You two stare at each other, holding it until glass shards explode from the chandelier's head."
+            puts "Of course you weren't going to soften up now"
+            return 'finished'
+        else
+            puts "You and the chandelier stare at each other."
+            puts "You reach for your gun, but the glass shard in your eye makes you pause for a moment."
+            puts "So this is what it feels like?"
+            return 'death'
+        end
     end
 end
 
